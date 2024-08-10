@@ -1,13 +1,14 @@
 
 def wave(people):
-    if len(people) == 0:
-        return []
-    else:
-        people = people.lower()
-        the_waves = []
-        for e,i in enumerate(people):
-            if i == " ":
-                continue
-            else:
-                the_waves.append(people[:e] + people[e].upper() + people[e+1:])
-        return the_waves
+    res = []
+    for p in range(len(people)):
+        upper = people[p].upper()
+        str_with_upper = people.replace(people[p], upper)
+        print(people[p], upper)
+        res.append(str_with_upper)
+    return res
+
+
+# print(wave("hello"))
+assert wave("hello") == ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
+
